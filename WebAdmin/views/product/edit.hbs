@@ -1,0 +1,138 @@
+<div class="container">
+    <div class="card card-register mx-auto mt-5">
+        <div class="card-header">Chỉnh sửa thông tin sản phẩm</div>
+        <div class="card-body">
+        <form method="POST" action="/product/update/{{data._id}}">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="ten" id="ten" value="{{data.ten}}" class="form-control" placeholder="Tên sản phẩm" required="required" autofocus="autofocus">
+                            <label for="ten">Tên sản phẩm</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="loai" id="loai" class="form-control-lg form-control">
+                            <option value="{{data.loai}}">{{data.loai}}</option>
+                            <option value="apple">Apple</option>
+                            <option value="samsung">Samsung</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="ma" id="ma" value="{{data.ma}}" class="form-control" placeholder="Mã sản phẩm" required="required">
+                            <label for="ma">Mã sản phẩm</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="number" name="soLuong" id="soLuong" value="{{data.soLuong}}" class="form-control" placeholder="Số lượng" required="required">
+                            <label for="soLuong">Số lượng</label>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-label-group">
+                        <input type="text" name="gia" id="gia" value="{{data.gia}}" class="form-control" placeholder="Giá" required="required">
+                        <label for="gia">Giá</label>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="manHinh" id="manHinh" value="{{data.manHinh}}" class="form-control" placeholder="Màn hình" required="required">
+                            <label for="manHinh">Màn hình</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="cpu" id="cpu" value="{{data.cpu}}" class="form-control" placeholder="CPU" required="required">
+                            <label for="cpu">CPU</label>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="cameraTruoc" id="cameraTruoc" value="{{data.cameraTruoc}}" class="form-control" placeholder="Camera trước" required="required">
+                            <label for="cameraTruoc">Camera trước</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="cameraSau" id="cameraSau" value="{{data.cameraSau}}" class="form-control" placeholder="Camera sau" required="required">
+                            <label for="cameraSau">Camera sau</label>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <select name="ram" id="ram" class="form-control-lg form-control">
+                            <option value="{{data.ram}}">RAM {{data.ram}}</option>
+                            <option value="2 GB">RAM 2 GB</option>
+                            <option value="3 GB">RAM 3 GB</option>
+                            <option value="4 GB">RAM 4 GB</option>
+                            <option value="6 GB">RAM 6 GB</option>
+                            <option value="8 GB">RAM 8 GB</option>
+                            <option value="12 GB">RAM 12 GB</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="rom" id="rom" class="form-control-lg form-control">
+                            <option value="{{data.rom}}">Bộ nhớ trong {{data.rom}}</option>
+                            <option value="32 GB">Bộ nhớ trong 32 GB</option>
+                            <option value="64 GB">Bộ nhớ trong 64 GB</option>
+                            <option value="128 GB">Bộ nhớ trong 128 GB</option>
+                            <option value="256 GB">Bộ nhớ trong 256 GB</option>
+                            <option value="512 GB">Bộ nhớ trong 512 GB</option>
+                        </select>
+                    </div>
+                </div>               
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="theNho" id="theNho" value="{{data.theNho}}" class="form-control" placeholder="Thẻ nhớ" required="required">
+                            <label for="theNho">Thẻ nhớ</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-label-group">
+                            <input type="text" name="sim" id="sim" value="{{data.sim}}" class="form-control" placeholder="Sim" required="required">
+                            <label for="sim">Sim</label>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-label-group">
+                        <input type="text" name="hinhAnh" id="hinhAnh" value="{{data.hinhAnh}}" class="form-control" placeholder="Hình ảnh" required="required">
+                        <label for="hinhAnh">Hình ảnh</label>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fa"></i> Chỉnh sửa sản phẩm
+            </button>
+        </form>
+      </div>
+    </div>
+</div>
