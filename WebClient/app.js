@@ -1,5 +1,3 @@
-require('./dbs');
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -9,7 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productRouter = require('./routes/product');
-var storeRouter = require('./routes/store');
 
 var app = express();
 
@@ -26,13 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);
-app.use('/store', storeRouter);
-
-app.use(express.static('public'));
-app.use(express.static('views'));
-app.use(express.static('models'));
-app.use(express.static('controllers'));
-app.use(express.static('dbs'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

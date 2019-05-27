@@ -1,18 +1,15 @@
-const mongoose=require('mongoose')
+const ObjectId = require('mongodb').ObjectId;
+const { dbs } = require('../dbs');
 
-const productSchema=new mongoose.Schema({
-  ma:String,
-  ten:String,
-  gia:String,
-  manHinh:String,
-  cameraTruoc:String,
-  cameraSau:String,
-  cpu:String,
-  ram:String,
-  rom:String,
-  theNho:String,
-  sim:String,
-  hinhAnh:String
-})
+const detail = async (id) => {
+  const results = await dbs.production.collection('products').find({_id: ObjectId(id)})
+    .toArray();
+  return results[0];
+};
 
-mongoose.model('product',productSchema);
+module.exports.list = async () => {
+    return await dbs.production.collection('products').find({})
+      .toArray();
+};
+
+exports.detail = detail;
