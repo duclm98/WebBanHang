@@ -1,0 +1,35 @@
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-7">
+                <!-- Billing Details -->
+                <div class="billing-details">
+                    <div class="section-title">
+                        <h3 class="title">Đăng nhập tài khoản của bạn</h3>
+                    </div>
+                    <form action="/users" method="post">
+                        <div class="form-group">
+                            <input class="input" type="text" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="password" name="password" placeholder="Password">
+                        </div>
+                        <div>
+                            <input class="primary-btn order-submit" type="submit" value="Đăng nhập"/>
+                        </div>
+                    </form>                    
+                </div>
+                <label>{{thongBao}}</label><br><br>
+                <a href="#">Quên mật khẩu</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="users/signUp">Bạn chưa có tài khoản, đăng kí ngay</a>
+                <!-- /Billing Details -->
+            </div>
+        <!-- /row -->
+        </div>
+    <!-- /container -->
+    </div>
+</div>
