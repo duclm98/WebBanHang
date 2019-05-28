@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card card-register mx-auto mt-5">
+        <div class="card-header">Đăng kí tài khoản</div>
+        <div class="card-body">
+            <form method="POST" action="/admin/signIn">
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="form-label-group">
+                                <input type="text" name="username" id="username" class="form-control" placeholder="User name" required="required" autofocus="autofocus">
+                                <label for="username">User name</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="form-label-group">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required" autofocus="autofocus">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa fa-plus"></i> Đăng nhập
+                </button>
+            </form>
+            <p>{{thongBao}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div id="content-wrapper">
+  <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Danh sách sản phẩm</a>
+        </li>
+      </ol>
+
+      <!-- DataTables -->
+      <div class="card mb-3">
+          <div class="card-header">
+              <i class="fas fa-table"></i>
+              Danh sách sản phẩm
+          </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                    <th>User name</th>
+                    <th>Họ</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Thành phố</th>
+                    <th>Số điện thoại</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if data}}
+                {{#each data}}
+                <tr>
+                    <th scope="row">{{this.username}}</th>
+                    <td>{{this.ho}}</td>
+                    <td>{{this.ten}}</td>
+                    <td>{{this.diaChi}}</td>
+                    <td>{{this.tp}}</td>
+                    <td>{{this.sdt}}</td>
+                </tr>
+                {{/each}}
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
