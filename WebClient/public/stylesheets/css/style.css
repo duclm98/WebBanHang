@@ -67,6 +67,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 10px;
 }
 
+#message{
+  color: red;
+}
+
 #styleH1{
   margin-top: 20px;
 }

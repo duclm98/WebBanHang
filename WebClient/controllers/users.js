@@ -1,20 +1,24 @@
 const user = require('../models/users');
 const bcrypt = require('bcrypt');
 
+const SALT_ROUNDS = 10;
+
 exports.signUp = async (req, res, next) => {
     res.render('users/signUp');
 };
 
 exports.signUpPost = async (req, res, next) => {
-    const body=req.body;
-    const hashPassword = bcrypt.hashSync(body.password, 10); 
+    const account = await user.get(req.body.email);
+    if (account)
+        return res.render('users/signUp', {message: 'Tài khoản đã tồn tại!'});
+    const hashPassword = bcrypt.hashSync(req.body.password, SALT_ROUNDS); 
     const data = {
-        ho:body.ho,
-        ten:body.ten,
-        diaChi:body.diaChi,
-        tp:body.tp,
-        sdt:body.sdt,
-        username:body.username,
+        ho:req.body.ho,
+        ten:req.body.ten,
+        diaChi:req.body.diaChi,
+        tp:req.body.tp,
+        sdt:req.body.sdt,
+        email:req.body.email,
         password:hashPassword
     }
     await user.add(data);
@@ -25,20 +29,7 @@ exports.signIn = async (req, res, next) => {
     res.render('users/signIn'); 
 };
 
-exports.signInPost = async (req, res, next) => { 
-    const body=req.body;
-    const data = await user.list();
-    var count=0;
-    for(var i=0;i<data.length;i++){
-        if(bcrypt.compareSync(body.password, data[i].password)) {
-            count++;
-            const user = data[i];
-            res.render('users/chiTiet',{user});
-        }
-    }  
-    if(count==0){
-        const thongBao="Tên đăng nhập hoặc mật khẩu không chính xác";
-        res.render('users/signIn',{thongBao});
-    }     
-};
-
+exports.logout = (req,res) => {
+    req.logout();
+    res.redirect('/');
+  };
