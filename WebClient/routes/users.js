@@ -10,7 +10,7 @@ router.get('/signIn', users.signIn);
 router.post('/signIn', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/users/signIn'
-  }));
+}));
 
 router.get('/signOut', users.logout);
 

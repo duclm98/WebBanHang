@@ -12,7 +12,7 @@
                     </div>
                     <div class="shop-body">
                         <h3>Iphone</h3>
-                        <a href="#" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="cta-btn">Mua ngay [{{user.email}}]<i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,8 @@
                         <ul class="section-tab-nav tab-nav">
                             <li class="active"><a data-toggle="tab" href="/">Trang chủ</a></li>
                             <li><a data-toggle="tab" ><a href="/product">Tất cả</a></a></li>
-                            <li><a data-toggle="tab" ><a href="#">Apple</a></a></li>
-                            <li><a data-toggle="tab" ><a href="#">Samsung cả</a></a></li>
+                            <li><a data-toggle="tab" ><a href="/product/Apple">Apple</a></a></li>
+                            <li><a data-toggle="tab" ><a href="/product/Samsung">Samsung</a></a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,110 +68,31 @@
                         <!-- tab -->
                         <div id="tab1" class="tab-pane active">
                             <div class="products-slick" data-nav="#slick-nav-1">
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{prodArr.prod0.hinhAnh}}" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <h3 class="product-name"><a href="/product/{{prodArr.prod0._id}}">{{prodArr.prod0.ten}}</a></h3>
-                                        <h4 class="product-price">{{prodArr.prod0.gia}} VNĐ</h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                {{#if data}}
+                                {{#each data}}
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="{{this.hinhAnh}}" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                                            <h4 class="product-price">{{this.gia}} VNĐ</h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
                                         </div>
                                     </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{prodArr.prod1.hinhAnh}}" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <h3 class="product-name"><a href="/product/{{prodArr.prod1._id}}">{{prodArr.prod1.ten}}</a></h3>
-                                        <h4 class="product-price">{{prodArr.prod1.gia}} VNĐ</h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{prodArr.prod2.hinhAnh}}" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <h3 class="product-name"><a href="/product/{{prodArr.prod2._id}}">{{prodArr.prod2.ten}}</a></h3>
-                                        <h4 class="product-price">{{prodArr.prod2.gia}} VNĐ</h4>
-                                        <div class="product-rating">
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{prodArr.prod3.hinhAnh}}" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <h3 class="product-name"><a href="/product/{{prodArr.prod3._id}}">{{prodArr.prod3.ten}}</a></h3>
-                                        <h4 class="product-price">{{prodArr.prod3.gia}} VNĐ</h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
-
-                                <!-- product -->
-                                <div class="product">
-                                    <div class="product-img">
-                                        <img src="{{prodArr.prod4.hinhAnh}}" alt="">
-                                    </div>
-                                    <div class="product-body">
-                                        <h3 class="product-name"><a href="/product/{{prodArr.prod4._id}}">{{prodArr.prod4.ten}}</a></h3>
-                                        <h4 class="product-price">{{prodArr.prod4.gia}} VNĐ</h4>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-                                    </div>
-                                </div>
-                                <!-- /product -->
+                                    <!-- /product -->
+                                {{/each}}
+                                {{/if}}
                             </div>
                             <div id="slick-nav-1" class="products-slick-nav"></div>
                         </div>

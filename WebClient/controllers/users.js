@@ -1,6 +1,5 @@
 const user = require('../models/users');
 const bcrypt = require('bcrypt');
-
 const SALT_ROUNDS = 10;
 
 exports.signUp = async (req, res, next) => {

@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const product = require('../controllers/product');
 
-router.get('/', product.store);
+router.get('/', product.list);
+router.get('/:loai', product.category);
 
-router.get('/:id', product.info);
+router.get('/info/:id', product.info);
 
 module.exports = router;

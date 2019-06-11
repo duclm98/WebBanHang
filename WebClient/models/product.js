@@ -7,9 +7,12 @@ const detail = async (id) => {
   return results[0];
 };
 
+module.exports.category = async (loai) => {
+  return await dbs.production.collection('products').find({loai}).toArray();
+};
+
 module.exports.list = async () => {
-    return await dbs.production.collection('products').find({})
-      .toArray();
+    return await dbs.production.collection('products').find({}).toArray();
 };
 
 exports.detail = detail;
