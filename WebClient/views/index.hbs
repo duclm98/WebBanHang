@@ -1,4 +1,4 @@
-<!-- SECTION -->
+﻿<!-- SECTION -->
 <div class="section">
     <!-- container -->
     <div class="container">
@@ -8,11 +8,12 @@
             <div class="col-md-6 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="../images/product_1.png" alt="">
+                        <img src="../images/Apple.png" alt="">
                     </div>
                     <div class="shop-body">
-                        <h3>Iphone</h3>
-                        <a href="#" class="cta-btn">Mua ngay [{{user.email}}]<i class="fa fa-arrow-circle-right"></i></a>
+                        <h3>Apple</h3>
+                        <a href="/product/Apple" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
+                        [{{user.email}}]
                     </div>
                 </div>
             </div>
@@ -22,11 +23,11 @@
             <div class="col-md-6 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
-                        <img src="../images/product_5.jpg" alt="">
+                        <img src="../images/Samsung.jpg" alt="">
                     </div>
                     <div class="shop-body">
                         <h3>Samsung</h3>
-                        <a href="#" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/product/Samsung" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -52,9 +53,9 @@
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
                             <li class="active"><a data-toggle="tab" href="/">Trang chủ</a></li>
-                            <li><a data-toggle="tab" ><a href="/product">Tất cả</a></a></li>
-                            <li><a data-toggle="tab" ><a href="/product/Apple">Apple</a></a></li>
-                            <li><a data-toggle="tab" ><a href="/product/Samsung">Samsung</a></a></li>
+                            <li><a data-toggle="tab" ><a href="/product/All/1">Tất cả</a></a></li>
+                            <li><a data-toggle="tab" ><a href="/product/Apple/1">Apple</a></a></li>
+                            <li><a data-toggle="tab" ><a href="/product/Samsung/1">Samsung</a></a></li>
                         </ul>
                     </div>
                 </div>
@@ -73,7 +74,7 @@
                                     <!-- product -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="{{this.hinhAnh}}" alt="">
+                                            <img src="../images/{{this.hinhAnh}}" alt="">
                                         </div>
                                         <div class="product-body">
                                             <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>

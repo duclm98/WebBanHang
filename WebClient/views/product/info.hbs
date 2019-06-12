@@ -7,8 +7,8 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="/">Trang chủ</a></li>
-                    <li><a href="#">{{prod.loai}}</a></li>
-                    <li><a href="#">{{prod.ten}}</a></li>
+                    <li><a href="#">{{data.loai}}</a></li>
+                    <li><a href="#">{{data.ten}}</a></li>
                 </ul>
             </div>
         </div>
@@ -303,3 +303,46 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
+
+<!-- Section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 class="title">Sản phẩm liên quan</h3>
+                </div>
+            </div>
+
+            {{#if data1}}
+            {{#each data1}}
+                <!-- product -->
+                <div class="col-md-3 col-xs-6">
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="../../images/{{this.hinhAnh}}" alt="">
+                        </div>
+                        <div class="product-body">
+                            <p class="product-category">{{this.loai}}</p>
+                            <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                            <h4 class="product-price">{{this.gia}} VNĐ</h4>
+                            <div class="product-rating">
+                            </div>
+                        </div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /product -->
+            {{/each}}
+            {{/if}}
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /Section -->

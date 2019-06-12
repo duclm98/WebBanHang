@@ -6,13 +6,26 @@ const detail = async (id) => {
     .toArray();
   return results[0];
 };
+exports.detail = detail;
 
-module.exports.category = async (loai) => {
-  return await dbs.production.collection('products').find({loai}).toArray();
-};
+const count = async() => {
+  return await dbs.production.collection('products').find().count();
+}
+exports.count=count;
+
+const count1 = async(loai) => {
+  return await dbs.production.collection('products').find({loai}).count();
+}
+exports.count1=count1;
 
 module.exports.list = async () => {
-    return await dbs.production.collection('products').find({}).toArray();
+  return await dbs.production.collection('products').find().toArray();
 };
 
-exports.detail = detail;
+module.exports.category = async (loai,productInPage,n) => {
+  return await dbs.production.collection('products').find({loai}).limit(productInPage).skip(productInPage*n).toArray();
+};
+
+module.exports.list1 = async (productInPage,n) => {
+  return await dbs.production.collection('products').find().limit(productInPage).skip(productInPage*n).toArray();
+};
