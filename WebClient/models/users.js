@@ -30,3 +30,11 @@ module.exports.list = async () => {
 module.exports.add = async (user) => {
     return await dbs.production.collection(USERS).insertOne(user);
 };
+
+const check = async (email) => {
+  const user = await dbs.production.collection(USERS).findOne({email});
+  if (user)
+    return true;
+  return false;
+};
+exports.check = check;

@@ -8,7 +8,8 @@ exports.list = async (req, res, next) => {
 
 exports.category = async (req, res, next) => {
     const loai = req.params['loai'];
-    const index = req.params['index'];
+    const index = Number(req.query.Page);
+    console.log(index);
     var data=[];
     var count=0;
     var title="";
@@ -41,6 +42,6 @@ exports.category = async (req, res, next) => {
 exports.info = async (req, res, next) => {
     const id = req.params['id']; 
     const data = await product.detail(id);
-    const data1 = await product.category(data.loai);
+    const data1 = await product.category1(data.loai);
     res.render('product/info', {data,data1}); 
 };

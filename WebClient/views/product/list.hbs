@@ -33,9 +33,10 @@
                         <label>
                             Sắp xếp theo:
                             <select class="input-select">
-                                <option value="0">Mới nhất</option>
-                                <option value="1">Giá tăng dần</option>
-                                <option value="2">Giá giảm dần</option>
+                                <option value="0">Sắp xếp theo</option>
+                                <option value="1">Mới nhất</option>
+                                <option value="2">Giá tăng dần</option>
+                                <option value="3">Giá giảm dần</option>
                             </select>
                         </label>
                     </div>
@@ -82,7 +83,7 @@
                         <p>Trang {{index}}</p>
                         {{#if data1}}
                         {{#each data1}}
-                            <li><a href="/product/{{this.cate}}/{{this.NumOfPage}}">{{this.NumOfPage}}</a></li>
+                            <li><a href="/product/{{this.cate}}?Page={{this.NumOfPage}}">{{this.NumOfPage}}</a></li>
                         {{/each}}
                         {{/if}}                       
                     </ul>                  
