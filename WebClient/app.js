@@ -5,13 +5,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require("express-session");
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var bodyParser = require('body-parser');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productRouter = require('./routes/product');
+var cartRouter = require('./routes/cart');
 const apiUsersRouter = require('./routes/api/users');
 
 const User = require('./models/users');
@@ -69,18 +69,17 @@ hbs.registerHelper('block', function(name) {
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({secret: "duc_regera"}));
+app.use(session({secret: "duc regera"}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);
+app.use('/cart', cartRouter);
 app.use('/api/users', apiUsersRouter);
 
 // catch 404 and forward to error handler

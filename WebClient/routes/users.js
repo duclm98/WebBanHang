@@ -6,12 +6,12 @@ const users = require('../controllers/users');
 router.get('/signUp', users.signUp);
 router.post('/signUp', users.signUpPost);
 
-router.get('/signIn', users.signIn);
-router.post('/signIn', passport.authenticate('local', {
+router.get('/login', users.loginGet);
+router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/users/signIn'
+    failureRedirect: '/users/login'
 }));
 
-router.get('/signOut', users.logout);
+router.get('/logout', users.logout);
 
 module.exports = router;

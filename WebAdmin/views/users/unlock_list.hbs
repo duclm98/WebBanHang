@@ -3,7 +3,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Danh sách người dùng</a>
+          <a href="#">Mở khóa người dùng</a>
         </li>
       </ol>
 
@@ -24,6 +24,7 @@
                     <th>Địa chỉ</th>
                     <th>Thành phố</th>
                     <th>Số điện thoại</th>
+                    <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -36,6 +37,7 @@
                     <td>{{this.diaChi}}</td>
                     <td>{{this.tp}}</td>
                     <td>{{this.sdt}}</td>
+                    <td><button type="button"><a href="/users/unlock/{{this._id}}">Mở khóa</a></button></td>
                 </tr>
                 {{/each}}
                 {{/if}}

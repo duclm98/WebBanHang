@@ -40,7 +40,7 @@
                 <div class="form-row">
                     <div class="col-md-12">
                         <div class="form-label-group">
-                        <input type="text" name="gia" id="gia" class="form-control" placeholder="Giá" required="required">
+                        <input type="number" name="gia" id="gia" class="form-control" placeholder="Giá" required="required">
                         <label for="gia">Giá</label>
                         </div>
                     </div>                   
@@ -122,9 +122,9 @@
             <div class="form-group">
                 <div class="form-row">
                     <div class="col-md-12">
-                        <div class="form-label-group">
-                        <input type="text" name="hinhAnh" id="hinhAnh" class="form-control" placeholder="Hình ảnh" required="required">
-                        <label for="hinhAnh">Hình ảnh</label>
+                        <div class="custom-file">
+                            <input name="hinhAnh" id="hinhAnh" type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label form-control" for="customFile">Hình ảnh</label>
                         </div>
                     </div>                   
                 </div>
@@ -136,3 +136,13 @@
       </div>
     </div>
 </div>
+
+{{#extend "scripts"}}
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+{{/extend}}

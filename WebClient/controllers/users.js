@@ -21,11 +21,11 @@ exports.signUpPost = async (req, res, next) => {
         password:hashPassword
     }
     await user.add(data);
-    res.redirect('./');
+    res.redirect('/');
 };
 
-exports.signIn = async (req, res, next) => { 
-    res.render('users/signIn'); 
+exports.loginGet = async (req, res, next) => { 
+    res.render('users/login'); 
 };
 
 exports.logout = (req,res) => {
