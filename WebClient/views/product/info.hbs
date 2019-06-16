@@ -80,7 +80,7 @@
                     <p>RAM: {{data.ram}}</p>
                     <p>Bộ nhớ: {{data.rom}}</p>
                     <div class="add-to-cart">
-                        <a href="#"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button></a>
+                        <a href="/cart/add/{{data._id}}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button></a>
                     </div>
 
                 </div>
@@ -333,7 +333,7 @@
                             </div>
                         </div>
                         <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
+                            <a href="/cart/add/{{this._id}}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button></a>
                         </div>
                     </div>
                 </div>

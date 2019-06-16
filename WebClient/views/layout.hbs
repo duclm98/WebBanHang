@@ -47,19 +47,29 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i> Nguyễn Văn Cừ, phường 4, Quận 5, TP Hồ Chí Minh</a></li>
             </ul>
             <ul class="header-links pull-right">
-                
+                {{#if user}}
                 <div class="dropdown ">
                     <div class="dropdown-toggle text-danger"  data-toggle="dropdown">
-                        <li><a href="#"><i class="fa fa-user-o"></i> Tài khoản của tôi</a></li>
+                        <li><a href="#"><i class="fa fa-user-o"></i>{{user.email}}</a></li>
                     </div>
-                    <div class="dropdown-menu" >
-                        <a class="dropdown-item" href="/users/login">Đăng nhập</a>                                            
+                    <div class="dropdown-menu" >                         
+                        <a class="dropdown-item" href="#">Chi tiết tài khoản</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/users/signUp">Đăng ký tài khoản</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/users/logout">Đăng xuất</a>
+                        <a class="dropdown-item" href="/users/logout">Đăng xuất</a>                    
                     </div>
                 </div>
+                {{else}}
+                <div class="dropdown ">
+                    <div class="dropdown-toggle text-danger"  data-toggle="dropdown">
+                        <li><a href="#"><i class="fa fa-user-o"></i>Tài khoản của tôi</a></li>
+                    </div>
+                    <div class="dropdown-menu" >                         
+                        <a class="dropdown-item" href="/users/login">Đăng nhập</a>                                            
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/signUp">Đăng ký tài khoản</a>                     
+                    </div>
+                </div>
+                {{/if}}
             </ul>
         </div>
     </div>
@@ -97,46 +107,10 @@
                 <div class="col-md-3 clearfix">
                     <div class="header-ctn">
                         <!-- Cart -->
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>Giỏ hàng<br>của tôi</span>
-                                <div class="qty">3</div>
-                            </a>
-                            <div class="cart-dropdown">
-                                <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="../images/product01.png" alt="image">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">Macbook pro</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>50.000.000</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="../images/product02.png" alt="image">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">Tai nghe apple AM15</a></h3>
-                                            <h4 class="product-price"><span class="qty">2x</span>5.000.000</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-                                </div>
-                                <div class="cart-summary">
-                                    <small>3 sản phẩm được chọn</small>
-                                    <h5>Tổng tiền: 60.000.000</h5>
-                                </div>
-                                <div class="cart-btns">
-                                    <a href="/">Trang chủ</a>
-                                    <a href="/checkout">Kiểm tra<i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="/cart/list" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <i class="fa fa-shopping-cart"></i><br>
+                            <span>Giỏ hàng<br>của tôi</span>
+                        </a>
                         <!-- /Cart -->
 
                         <!-- Menu Toogle -->

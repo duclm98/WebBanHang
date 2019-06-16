@@ -3,13 +3,12 @@ const productInPage = 12;
 
 exports.list = async (req, res, next) => {
     const data = await product.list();
-    res.render('product/list', {data,title:"Cửa hàng"}); 
+    res.render('product/list', {data,title:"Cửa hàng",user: req.user}); 
 };
 
 exports.category = async (req, res, next) => {
     const loai = req.params['loai'];
     const index = Number(req.query.Page);
-    console.log(index);
     var data=[];
     var count=0;
     var title="";
@@ -36,12 +35,12 @@ exports.category = async (req, res, next) => {
             cate:req.params['loai']
         }
     }
-    res.render('product/list', {data,data1,index,title});
+    res.render('product/list', {data,data1,index,title,user: req.user});
 };
 
 exports.info = async (req, res, next) => {
     const id = req.params['id']; 
     const data = await product.detail(id);
     const data1 = await product.category1(data.loai);
-    res.render('product/info', {data,data1}); 
+    res.render('product/info', {data,data1,user: req.user}); 
 };

@@ -11,7 +11,7 @@ const SALT_ROUNDS = 10;
  */
 
 const detail = async (id) => {
-    const results = await dbs.production.collection('products').find({_id: ObjectId(id)})
+    const results = await dbs.production.collection(USERS).find({_id: ObjectId(id)})
       .toArray();
     return results[0];
 };

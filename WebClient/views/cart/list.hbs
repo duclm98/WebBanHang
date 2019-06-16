@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
                     <li><a href="/">Trang chủ</a></li>
-                    <li><a href="#">{{title}}</a></li>
+                    <li><a href="#">Giỏ hàng của tôi</a></li>
                 </ul>
             </div>
         </div>
@@ -27,21 +27,6 @@
 
             <!-- STORE -->
             <div id="store" class="col-md-12">
-                <!-- store top filter -->
-                <div class="store-filter clearfix">
-                    <div class="store-sort">
-                        <label>
-                            Sắp xếp theo:
-                            <select class="input-select">
-                                <option value="0">Sắp xếp theo</option>
-                                <option value="1">Mới nhất</option>
-                                <option value="2">Giá tăng dần</option>
-                                <option value="3">Giá giảm dần</option>
-                            </select>
-                        </label>
-                    </div>
-                </div>
-                <!-- /store top filter -->
 
                 <!-- store products -->
                 <div class="row">
@@ -76,19 +61,6 @@
                     {{/if}}
                 </div>
                 <!-- /store products -->
-
-                <!-- store bottom filter -->
-                <div class="store-filter clearfix">
-                    <ul class="store-pagination">
-                        <p>Trang {{index}}</p>
-                        {{#if data1}}
-                        {{#each data1}}
-                            <li><a href="/product/{{this.cate}}?Page={{this.NumOfPage}}">{{this.NumOfPage}}</a></li>
-                        {{/each}}
-                        {{/if}}                       
-                    </ul>                  
-                </div>
-                <!-- /store bottom filter -->
             </div>
             <!-- /STORE -->
         </div>
