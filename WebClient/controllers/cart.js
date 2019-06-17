@@ -68,12 +68,13 @@ exports.checkoutPost = async (req, res, next) => {
                 + currentdate.getSeconds();
 
         const data = {//Đơn hàng
+            email:USER.email,
             nguoiNhan:req.body.ten,
             sdtNguoiNhan:req.body.sdt,
             diaChiNhan:req.body.diaChi,
             listIdProduct:arrIdProduct,
             time:datetime,
-            trangThai:0
+            trangThai:false
         }
         await order.add(data);
 
@@ -82,4 +83,42 @@ exports.checkoutPost = async (req, res, next) => {
         }
     }  
     res.redirect('./list');
+};
+
+exports.orders = async (req, res, next) => {
+    const USER = req.user;
+    var data = [];
+    if(USER){
+        ORDER = await order.list(USER.email)
+        data = ORDER;
+        for(var i=0;i<ORDER.length;i++){
+            var listProduct = [];
+            var LISTPRODUCT =[];
+            for(var j=0;j<ORDER[i].listIdProduct.length;j++){
+                const PRODUCT = await product.detail(ORDER[i].listIdProduct[j])
+                LISTPRODUCT.push(PRODUCT);
+            }
+            data[i].listProduct=LISTPRODUCT;
+        }      
+    }  
+    res.render('cart/orders',{data,user:USER});
+};
+
+exports.deleteOrders = async (req, res, next) => {
+    const id = req.params['id'];
+    await order.delete(id);
+    res.redirect('./orders');
+};
+
+exports.editAddress = async (req, res, next) => {
+    const USER = req.user;
+    const id = req.params['id'];
+    const data = await order.detail(id);
+    res.render('cart/editAddress',{data,user:USER});
+};
+
+exports.editAddressPost = async (req, res, next) => {
+    const id = req.params['id'];
+    await order.updateAddress(id,req.body.nguoiNhan,req.body.sdtNguoiNhan,req.body.diaChiNhan);
+    res.redirect('../orders');
 };

@@ -23,51 +23,52 @@
     <div class="container">
         <!-- row -->
         <div class="row">
-            
-
-            <!-- STORE -->
-            <div id="store" class="col-md-12">
-
-                <!-- store products -->
-                <div class="row">
-                    {{#if data}}
-                    {{#each data}}
-                        <!-- product -->
-                        <div class="col-md-3 col-xs-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="../../images/{{this.hinhAnh}}" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">{{this.loai}}</p>
-                                    <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
-                                    <h4 class="product-price">{{this.gia}} VNĐ</h4>
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+            {{#if data}}
+            {{#each data}}
+                <h3>Đơn hàng số: {{this._id}}</h3>
+                <p>Ngày đặt hàng: {{this.time}}</p>
+                <p>Người nhận: {{this.nguoiNhan}}</p>
+                <p>Số điện thoại người nhận: {{this.sdtNguoiNhan}}</p>
+                <p>Địa chỉ nhận: {{this.diaChiNhan}}</p><br>
+                <!-- STORE -->
+                <div id="store" class="col-md-12">
+                    <!-- store products -->
+                    <div class="row">
+                        {{#each this.listProduct}}
+                            <!-- product -->
+                            <div class="col-md-3 col-xs-6">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="../../images/{{this.hinhAnh}}" alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">{{this.loai}}</p>
+                                        <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
+                                        <h4 class="product-price">{{this.gia}} VNĐ</h4>
                                     </div>
                                 </div>
-                                <div class="add-to-cart">
-                                    <a href="/cart/delete/{{this._id}}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Xóa khỏi giỏ hàng</button></a>
-                                </div>
                             </div>
-                        </div>
-                        <!-- /product -->
-                        <div class="clearfix visible-md visible-sm visible-xs"></div>
-                    {{/each}}
-                    {{/if}}
+                            <!-- /product -->
+                            <div class="clearfix visible-md visible-sm visible-xs"></div>
+                        {{/each}}
+                    </div>
+                    <!-- /store products -->
                 </div>
-                <!-- /store products -->
+                <!-- /STORE -->
+                {{#if this.trangThai}}
+                    <h4>Trang thái: Đã nhận hàng</h4>
+                    {{else}}
+                        <h4>Trang thái: Đặt hàng thành công</h4><br>
+                        <div class="add-to-cart">
+                            <a href="/cart/deleteOrders/{{this._id}}" class="primary-btn order-submit">Hủy bỏ đơn hàng</a>
+                            <a href="/cart/editAddress/{{this._id}}" class="primary-btn order-submit">Thay đổi địa chỉ nhận hàng</a>
+                        </div><br>
+                {{/if}}
                 
-                <div class="add-to-cart">
-                    <a href="/cart/checkout" class="primary-btn order-submit">Đặt hàng ngay</a>
-                </div>
-
-            </div>
-            <!-- /STORE -->
+                
+                <hr>
+            {{/each}}
+            {{/if}}
         </div>
         <!-- /row -->
     </div>
