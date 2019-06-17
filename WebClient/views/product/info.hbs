@@ -204,11 +204,14 @@
 
                                 <!-- Reviews -->
                                 <div class="col-md-6">
+                                    {{#if COMMENTS}}
+                                    {{#each COMMENTS}}
                                     <div id="reviews">
+                                        {{#each this.cmts}}
                                         <ul class="reviews">
                                             <li>
                                                 <div class="review-heading">
-                                                    <h5 class="name">Hàn Phương Liên</h5>
+                                                    <h5 class="name">{{this.ten}}</h5>
                                                     <p class="date">25 DEC 2018, 9:0 AM</p>
                                                     <div class="review-rating">
                                                         <i class="fa fa-star"></i>
@@ -219,60 +222,30 @@
                                                     </div>
                                                 </div>
                                                 <div class="review-body">
-                                                    <p>Tôi đã mua sản phẩm này. Đây là quyết định sai lầm. Nhất là dùng để làm việc, vì bất cứ lúc nào máy cũng có thể bị đơ, không thể sử dụng, từ vài chục phút cho đến cả ngày, cho đến khi bạn phải cài lại máy. Mà vấn đề vẫn không hề được cải thiện</p>
+                                                    <p>{{this.nhanXet}}</p>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="review-heading">
-                                                    <h5 class="name">Minh Đức</h5>
-                                                    <p class="date">27 SEP 2017, 10:0 AM</p>
-                                                    <div class="review-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o empty"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="review-body">
-                                                    <p>Sản phẩm tốt, thiết kế quá đẹp, xử lý các tác vụ nhanh, tuy nhiên máy hơi nóng.</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="review-heading">
-                                                    <h5 class="name">Dũng</h5>
-                                                    <p class="date">15 MAY 2018, 1:0 PM</p>
-                                                    <div class="review-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-o empty"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="review-body">
-                                                    <p>Sản phẩm tốt</p>
-                                                </div>
-                                            </li>
+                                            
                                         </ul>
+                                        {{/each}}
                                         <ul class="reviews-pagination">
-                                            <li class="active">1</li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                            <li><a href="#">{{this.NumOfPage}}</a></li>
                                         </ul>
                                     </div>
+                                    {{/each}}
+                                    {{/if}}
                                 </div>
                                 <!-- /Reviews -->
 
                                 <!-- Review Form -->
                                 <div class="col-md-3">
                                     <div id="review-form">
-                                        <form class="review-form">
-                                            <input class="input" type="text" placeholder="Tên của bạn">
-                                            <input class="input" type="email" placeholder="Email">
-                                            <textarea class="input" placeholder="Đánh giá"></textarea>
+                                        
+
+                                        
+                                        <form class="review-form" method="POST" action="/comment/add/{{data._id}}">
+                                            {{#if user}}
+                                            <textarea class="input" name="nhanXet" placeholder="Đánh giá"></textarea>
                                             <div class="input-rating">
                                                 <span>Xếp hạng: </span>
                                                 <div class="stars">
@@ -284,6 +257,21 @@
                                                 </div>
                                             </div>
                                             <button class="primary-btn">Đánh giá</button>
+                                                {{else}}
+                                                <input class="input" type="text" name="ten" placeholder="Tên của bạn">
+                                                <textarea class="input" name="nhanXet" placeholder="Đánh giá"></textarea>
+                                                <div class="input-rating">
+                                                    <span>Xếp hạng: </span>
+                                                    <div class="stars">
+                                                        <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
+                                                        <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
+                                                        <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
+                                                        <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
+                                                        <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+                                                    </div>
+                                                </div>
+                                                <button class="primary-btn">Đánh giá</button>
+                                            {{/if}}
                                         </form>
                                     </div>
                                 </div>

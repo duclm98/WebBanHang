@@ -1,5 +1,7 @@
 const product = require('../models/product');
+const comment = require('../models/comment');
 const productInPage = 12;
+const commentInPage = 5;
 
 exports.list = async (req, res, next) => {
     const data = await product.list();
@@ -40,7 +42,22 @@ exports.category = async (req, res, next) => {
 
 exports.info = async (req, res, next) => {
     const id = req.params['id']; 
-    const data = await product.detail(id);
-    const data1 = await product.category1(data.loai);
-    res.render('product/info', {data,data1,user: req.user}); 
+    const data = await product.detail(id);//Chi tiết sản phẩm
+    const data1 = await product.category1(data.loai);//Các sản phẩm liên quan
+
+    const COMMENTS=[{
+        NumOfPage: Number,
+        cmts:[]
+    }];
+    const count = await comment.count();
+    for(var i = 0;i<=count/commentInPage;i++)
+    {
+        const cmts = await comment.list(commentInPage,i);
+        COMMENTS[i]={
+            NumOfPage:i+1,
+            cmts:cmts
+        }
+    }
+    console.log(COMMENTS);
+    res.render('product/info', {data,data1,COMMENTS,user: req.user}); 
 };
