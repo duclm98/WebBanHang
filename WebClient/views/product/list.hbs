@@ -83,7 +83,11 @@
                         <p>Trang {{index}}</p>
                         {{#if data1}}
                         {{#each data1}}
+                            {{#if this.cate}}
                             <li><a href="/product/{{this.cate}}?Page={{this.NumOfPage}}">{{this.NumOfPage}}</a></li>
+                                {{else}}
+                                <li><a href="/product/search/{{this.key}}?Page={{this.NumOfPage}}">{{this.NumOfPage}}</a></li>
+                            {{/if}}
                         {{/each}}
                         {{/if}}                       
                     </ul>                  

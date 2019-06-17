@@ -1,7 +1,6 @@
 const product = require('../models/product');
 const comment = require('../models/comment');
 const productInPage = 12;
-const commentInPage = 5;
 
 exports.list = async (req, res, next) => {
     const data = await product.list();
@@ -44,20 +43,45 @@ exports.info = async (req, res, next) => {
     const id = req.params['id']; 
     const data = await product.detail(id);//Chi tiết sản phẩm
     const data1 = await product.category1(data.loai);//Các sản phẩm liên quan
+    const COMMENTS = await comment.list();
+    const COUNT = await comment.count();
+    res.render('product/info', {data,data1,COMMENTS,COUNT,user: req.user}); 
+}; 
 
-    const COMMENTS=[{
+exports.search = async (req, res, next) => {
+    const key =req.params['key']; 
+    const index = Number(req.query.Page);
+    const data = await product.search(key,productInPage,index-1);
+    const count = await product.countSearch(key);
+    const data1=[{
         NumOfPage: Number,
-        cmts:[]
-    }];
-    const count = await comment.count();
-    for(var i = 0;i<=count/commentInPage;i++)
+        key:String
+    }]; 
+    for(var i = 0;i<count/productInPage;i++)
     {
-        const cmts = await comment.list(commentInPage,i);
-        COMMENTS[i]={
+        data1[i]={
             NumOfPage:i+1,
-            cmts:cmts
+            key:key
         }
     }
-    console.log(COMMENTS);
-    res.render('product/info', {data,data1,COMMENTS,user: req.user}); 
-};
+    res.render('product/list', {data,data1,index,title:"Tất cả",user: req.user});
+}; 
+
+exports.searchPost = async (req, res, next) => {
+    const key =req.body.key;//Lấy key từ input
+    const index = Number(req.query.Page);
+    const data = await product.search(key,productInPage,index-1);
+    const count = await product.countSearch(key);
+    const data1=[{
+        NumOfPage: Number,//chỉ số trang
+        key:String//từ khóa cần tìm
+    }]; 
+    for(var i = 0;i<count/productInPage;i++)
+    {
+        data1[i]={
+            NumOfPage:i+1,
+            key:key
+        }
+    }
+    res.render('product/list', {data,data1,index,title:"Tất cả",user: req.user});
+};  

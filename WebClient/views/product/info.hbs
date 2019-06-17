@@ -92,7 +92,7 @@
                     <!-- product tab nav -->
                     <ul class="tab-nav">
                         <li class="active"><a data-toggle="tab" href="#tab1">Chi tiết</a></li>
-                        <li><a data-toggle="tab" href="#tab2">Đánh giá (3)</a></li>
+                        <li><a data-toggle="tab" href="#tab2">Đánh giá ({{COUNT}})</a></li>
                     </ul>
                     <!-- /product tab nav -->
 
@@ -204,11 +204,11 @@
 
                                 <!-- Reviews -->
                                 <div class="col-md-6">
-                                    {{#if COMMENTS}}
-                                    {{#each COMMENTS}}
+                                    
                                     <div id="reviews">
-                                        {{#each this.cmts}}
-                                        <ul class="reviews">
+                                        {{#if COMMENTS}}
+                                        {{#each COMMENTS}}
+                                        <ul class="reviews" id="comment">
                                             <li>
                                                 <div class="review-heading">
                                                     <h5 class="name">{{this.ten}}</h5>
@@ -228,12 +228,8 @@
                                             
                                         </ul>
                                         {{/each}}
-                                        <ul class="reviews-pagination">
-                                            <li><a href="#">{{this.NumOfPage}}</a></li>
-                                        </ul>
-                                    </div>
-                                    {{/each}}
-                                    {{/if}}
+                                        {{/if}}
+                                    </div>                                   
                                 </div>
                                 <!-- /Reviews -->
 

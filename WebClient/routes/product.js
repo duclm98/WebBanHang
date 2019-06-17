@@ -7,4 +7,7 @@ router.get('/:loai', product.category);
 
 router.get('/info/:id', product.info);
 
+router.post('/search/all', product.searchPost);
+router.get('/search/:key', product.search);
+
 module.exports = router;

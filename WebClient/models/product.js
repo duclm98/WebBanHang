@@ -33,3 +33,14 @@ module.exports.category = async (loai,productInPage,n) => {
 module.exports.category1 = async (loai) => {
   return await dbs.production.collection('products').find({loai}).toArray();
 };
+
+module.exports.search = async (key,productInPage,n) => {
+  await dbs.production.collection('products').createIndex( { ten: "text", loai: "text", gia: "text", manHinh: "text", rom: "text" } );
+  return await dbs.production.collection('products').find({$text:{$search:key}}).limit(productInPage).skip(productInPage*n).toArray();
+};
+
+const countSearch = async (key) => {
+  await dbs.production.collection('products').createIndex( { ten: "text", loai: "text", gia: "text", manHinh: "text", rom: "text" } );
+  return await dbs.production.collection('products').find({$text:{$search:key}}).count();
+};
+exports.countSearch=countSearch;

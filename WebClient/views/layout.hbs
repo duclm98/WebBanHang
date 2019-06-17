@@ -96,14 +96,15 @@
                 <!-- SEARCH BAR -->
                 <div class="col-md-7">
                     <div class="header-search">
-                        <form>
-                            <select class="input-select">
+                        <form method="POST" action="/product/search/all?Page=1">
+                            <select name="select" class="input-select">
                                 <option value="0">Tất cả</option>
-                                <option value="1">Iphone</option>
-                                <option value="2">Samsung</option>
+                                <option value="1">Theo tên</option>
+                                <option value="2">Theo loại</option>
+                                <option value="3">Theo giá</option>
                             </select>
-                            <input class="input" placeholder="Nhập từ khóa tìm kiếm">
-                            <button class="search-btn">Tìm kiếm</button>
+                            <input type="text" class="input" name="key"  placeholder="Nhập từ khóa tìm kiếm">
+                            <input type="submit" class="search-btn" value="Tìm kiếm" placeholder="Tìm kiếm"></input>
                         </form>
                     </div>
                 </div>
@@ -222,7 +223,7 @@
 								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							</span>
-                </div>
+                </div> 
             </div>
             <!-- /row -->
         </div>
