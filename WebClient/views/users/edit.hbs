@@ -8,34 +8,28 @@
                 <!-- Billing Details -->
                 <div class="billing-details">
                     <div class="section-title">
-                        <h3 class="title">Đăng kí tài khoản</h3>
+                        <h3 class="title">Thay đổi thông tin tài khoản</h3>
                     </div>
-                    <form method="POST" action="/users/signUp">
+                    <form method="POST" action="/users/edit">
                         <div class="form-group">
-                            <input class="input" type="text" name="ten" placeholder="Tên">
+                            <input class="input" value="{{user.ten}}" type="text" name="ten" placeholder="Tên">
                         </div>                  
                         <div class="form-group">
-                            <input class="input" type="text" name="diaChi" placeholder="Địa chỉ">
+                            <input class="input" value="{{user.diaChi}}" type="text" name="diaChi" placeholder="Địa chỉ">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="sdt" placeholder="Số điện thoại">
+                            <input class="input" value="{{user.sdt}}" type="text" name="sdt" placeholder="Số điện thoại">
                         </div>
                         <div class="form-group">
-                            <input class="input" type="email" name="email" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <input class="input" type="password" name="password" id="password" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <input class="input" type="password" id="confirm_password" placeholder="Nhập lại password">
+                            <input class="input" value="{{user.email}}" type="email" name="email" id="email" placeholder="Email" disabled>
                         </div>
                         <p id="message">{{message}}</p><br>
                         <div>
-                            <input id="register"  class="primary-btn order-submit" type="submit" value="Đăng kí"/>
+                            <input id="register"  class="primary-btn order-submit" type="submit" value="Chỉnh sửa"/>
                         </div>
                     </form>                      							
                 </div>
-                <a href="/users" class="primary-btn order-submit">Trở về đăng nhập</a><br><br>
+                <a href="/users/info" class="primary-btn order-submit">Quay lại</a><br><br>
                 <!-- /Billing Details -->
         </div>
         <!-- /row -->

@@ -55,3 +55,7 @@ const check = async (email) => {
   return false;
 };
 exports.check = check;
+
+module.exports.update = async (email,user) => {
+  return await dbs.production.collection(USERS).updateOne({email},{$set: user});
+};

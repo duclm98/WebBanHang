@@ -31,4 +31,17 @@ exports.loginGet = async (req, res, next) => {
 exports.logout = (req,res) => {
     req.logout();
     res.redirect('/');
-  };
+};
+
+exports.info = async (req, res, next) => { 
+    res.render('users/info',{user:req.user}); 
+};
+
+exports.edit = async (req, res, next) => { 
+    res.render('users/edit',{user:req.user}); 
+};
+
+exports.editPost = async (req, res, next) => { 
+    await user.update(req.user.email,req.body);
+    res.redirect('info');
+};

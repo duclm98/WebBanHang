@@ -1,0 +1,87 @@
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">Kiểm tra</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li class="active">Đặt hàng</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <form method="POST" action="/cart/checkout">
+                <div class="col-md-7">
+                    <!-- Billing Details -->
+                    <div class="billing-details">
+                        <div class="section-title">
+                            <h3 class="title">Địa chỉ thanh toán và nhận hàng</h3>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" value="{{user.ten}}" type="text" name="ten" placeholder="Tên">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" value="{{user.sdt}}" type="tel" name="sdt" placeholder="Số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" value="{{user.diaChi}}" type="text" name="diaChi" placeholder="Địa chỉ">
+                        </div>
+                    </div>
+                    <!-- /Billing Details -->
+                </div>
+
+                <!-- Order Details -->
+                <div class="col-md-5 order-details">
+                    <div class="section-title text-center">
+                        <h3 class="title">Sản phẩm của tôi</h3>
+                    </div>
+                    <div class="order-summary">
+                        <div class="order-col">
+                            <div><strong>Sản phẩm</strong></div>
+                            <div><strong>Toàn bộ</strong></div>
+                        </div>
+                        <div class="order-products">
+                            {{#if data}}
+                            {{#each data}}
+                            <div class="order-col">
+                                <div><a href="/product/info/{{this._id}}">{{this.ten}}</a></div>
+                                <div>{{this.gia}}</div>
+                            </div>
+                            {{/each}}
+                            {{/if}}
+                        </div>
+                        <div class="order-col">
+                            <div>Vận chuyển</div>
+                            <div><strong>Miễn phí</strong></div>
+                        </div>
+                        <div class="order-col">
+                            <div><strong>Tổng tiền</strong></div>
+                            <div><strong class="order-total">{{total}} VNĐ</strong></div>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="primary-btn order-submit" type="submit" value="Đặt hàng"/>
+                    </div>
+                </div>
+                <!-- /Order Details -->
+            </form>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->

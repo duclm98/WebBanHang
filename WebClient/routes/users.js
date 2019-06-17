@@ -14,4 +14,9 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout', users.logout);
 
+router.get('/info', users.info);
+
+router.get('/edit', users.edit);
+router.post('/edit', users.editPost);
+
 module.exports = router;
