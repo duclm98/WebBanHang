@@ -1,4 +1,4 @@
-<!-- BREADCRUMB -->
+﻿<!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->
     <div class="container">
@@ -29,7 +29,9 @@
                 <p>Ngày đặt hàng: {{this.time}}</p>
                 <p>Người nhận: {{this.nguoiNhan}}</p>
                 <p>Số điện thoại người nhận: {{this.sdtNguoiNhan}}</p>
-                <p>Địa chỉ nhận: {{this.diaChiNhan}}</p><br>
+                <p>Địa chỉ nhận: {{this.diaChiNhan}}</p>
+                <p>Tổng tiền: {{this.total}} đồng</p> 
+                <br>
                 <!-- STORE -->
                 <div id="store" class="col-md-12">
                     <!-- store products -->
@@ -39,7 +41,7 @@
                             <div class="col-md-3 col-xs-6">
                                 <div class="product">
                                     <div class="product-img">
-                                        <img src="../../images/{{this.hinhAnh}}" alt="">
+                                        <img src="{{this.hinhAnh}}" alt="">
                                     </div>
                                     <div class="product-body">
                                         <p class="product-category">{{this.loai}}</p>

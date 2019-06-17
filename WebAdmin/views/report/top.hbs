@@ -3,7 +3,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Chỉnh sửa sản phẩm</a>
+          <a href="#">Tốp 10 sản phẩm bán chạy nhất</a>
         </li>
       </ol>
 
@@ -11,7 +11,7 @@
       <div class="card mb-3">
           <div class="card-header">
               <i class="fas fa-table"></i>
-              Danh sách sản phẩm
+              Danh sách 10 sản phẩm bán chạy nhất
           </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -30,7 +30,6 @@
                     <th>Ram</th>
                     <th>Bộ nhớ</th>
                     <th>Hình ảnh</th>
-                    <th>Chọn</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,7 +48,6 @@
                     <td>{{this.ram}}</td>
                     <td>{{this.rom}}</td>
                     <td><a href="{{this.hinhAnh}}">{{this.hinhAnh}}</a></td>
-                    <td><button type="button"><a href="/product/{{this._id}}">Sửa</a></button></td>
                 </tr>
                 {{/each}}
                 {{/if}}

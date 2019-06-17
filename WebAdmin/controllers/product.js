@@ -10,7 +10,23 @@ exports.add = (req, res, next) => {
 };
 
 exports.addPost = async (req, res, next) => {
-    await product.add(req.body);
+    const data = {
+        ten:req.body.ten,
+        loai:req.body.loai,
+        ma:req.body.ma,
+        soLuong:Number(req.body.soLuong),
+        gia:Number(req.body.gia),
+        manHinh:req.body.manHinh,
+        cpu:req.body.cpu,
+        cameraTruoc:req.body.cameraTruoc,
+        cameraSau:req.body.cameraSau,
+        ram:req.body.ram,
+        rom:req.body.rom,
+        theNho:req.body.theNho,
+        sim:req.body.sim,
+        hinhAnh:req.body.hinhAnh
+    }
+    await product.add(data);
     res.redirect('./');
 };
 
@@ -38,6 +54,22 @@ exports.edit = async (req, res, next) => {
 
 exports.updatePost = async (req, res, next) => {
     const id = req.params['id'];
-    await product.update(id,req.body);
+    const data = {
+        ten:req.body.ten,
+        loai:req.body.loai,
+        ma:req.body.ma,
+        soLuong:Number(req.body.soLuong),
+        gia:Number(req.body.gia),
+        manHinh:req.body.manHinh,
+        cpu:req.body.cpu,
+        cameraTruoc:req.body.cameraTruoc,
+        cameraSau:req.body.cameraSau,
+        ram:req.body.ram,
+        rom:req.body.rom,
+        theNho:req.body.theNho,
+        sim:req.body.sim,
+        hinhAnh:req.body.hinhAnh
+    }
+    await product.update(id,data);
     res.redirect('../update');
 };

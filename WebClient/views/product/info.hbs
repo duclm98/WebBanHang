@@ -28,13 +28,13 @@
             <div class="col-md-5 col-md-push-2">
                 <div id="product-main-img">
                     <div class="product-preview">
-                        <img src="../../images/{{data.hinhAnh}}" alt="">
+                        <img src="{{data.hinhAnh}}" alt="">
                     </div>
                     <div class="product-preview">
-                        <img src="../../images/{{data.hinhAnh}}" alt="">
+                        <img src="{{data.hinhAnh}}" alt="">
                     </div>
                     <div class="product-preview">
-                        <img src="../../images/{{data.hinhAnh}}" alt="">
+                        <img src="{{data.hinhAnh}}" alt="">
                     </div>
                 </div>
             </div>
@@ -44,13 +44,13 @@
             <div class="col-md-2  col-md-pull-5">
                 <div id="product-imgs">
                     <div class="product-preview">
-                        <img src="../../images/{{data.hinhAnh}}" alt="">
+                        <img src="{{data.hinhAnh}}" alt="">
                     </div>
                     <div class="product-preview">
-                        <img src="../../images/{{data.hinhAnh}}" alt="">
+                        <img src="{{data.hinhAnh}}" alt="">
                     </div>
                     <div class="product-preview">
-                        <img src="../../images/{{data.hinhAnh}}" alt="">
+                        <img src="{{data.hinhAnh}}" alt="">
                     </div>
                 </div>
             </div>
@@ -212,7 +212,7 @@
                                             <li>
                                                 <div class="review-heading">
                                                     <h5 class="name">{{this.ten}}</h5>
-                                                    <p class="date">25 DEC 2018, 9:0 AM</p>
+                                                    <p class="date">{{this.dateTime}}</p>
                                                     <div class="review-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -306,11 +306,11 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="../../images/{{this.hinhAnh}}" alt="">
+                            <img src="{{this.hinhAnh}}" alt="">
                         </div>
                         <div class="product-body">
                             <p class="product-category">{{this.loai}}</p>
-                            <h3 class="product-name"><a href="/product/{{this._id}}">{{this.ten}}</a></h3>
+                            <h3 class="product-name"><a href="/product/info/{{this._id}}">{{this.ten}}</a></h3>
                             <h4 class="product-price">{{this.gia}} VNĐ</h4>
                             <div class="product-rating">
                             </div>

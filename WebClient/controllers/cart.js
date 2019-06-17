@@ -59,6 +59,7 @@ exports.checkoutPost = async (req, res, next) => {
         for(var i=0;i<count;i++){
             arrIdProduct.push(LIST[i].idProduct);
         }
+        
         const currentdate = new Date(); //Lấy ngày giờ mua hàng
         const datetime = currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
@@ -92,13 +93,15 @@ exports.orders = async (req, res, next) => {
         ORDER = await order.list(USER.email)
         data = ORDER;
         for(var i=0;i<ORDER.length;i++){
-            var listProduct = [];
+            var total = 0;
             var LISTPRODUCT =[];
             for(var j=0;j<ORDER[i].listIdProduct.length;j++){
                 const PRODUCT = await product.detail(ORDER[i].listIdProduct[j])
                 LISTPRODUCT.push(PRODUCT);
+                total = total + PRODUCT.gia;
             }
             data[i].listProduct=LISTPRODUCT;
+            data[i].total=total;
         }      
     }  
     res.render('cart/orders',{data,user:USER});
@@ -121,4 +124,4 @@ exports.editAddressPost = async (req, res, next) => {
     const id = req.params['id'];
     await order.updateAddress(id,req.body.nguoiNhan,req.body.sdtNguoiNhan,req.body.diaChiNhan);
     res.redirect('../orders');
-};
+}; 

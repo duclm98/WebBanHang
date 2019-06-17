@@ -1,0 +1,51 @@
+<div id="content-wrapper">
+  <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Danh sách đơn hàng chưa giao</a>
+        </li>
+      </ol>
+
+      <!-- DataTables -->
+      <div class="card mb-3">
+          <div class="card-header">
+              <i class="fas fa-table"></i>
+              Danh sách đơn hàng chưa giao
+          </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                    <th>Email người đặt hàng</th>
+                    <th>Người nhận hàng</th>
+                    <th>Số điện thoại người nhận hàng</th>
+                    <th>Địa chỉ giao hàng</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Danh sách hàng hóa khách hàng đặt</th>
+                    <th>Xác nhận đã giao</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if data}}
+                {{#each data}}
+                <tr>
+                    <th scope="row">{{this.email}}</th>
+                    <td>{{this.nguoiNhan}}</td>
+                    <td>{{this.sdtNguoiNhan}}</td>
+                    <td>{{this.diaChiNhan}}</td>
+                    <td>{{this.time}}</td>
+                    <td><a href="/order/delivery/{{this._id}}">Danh sách mặt hàng</a></td>
+                    <td><a href="/order/deliver/{{this._id}}">Xác nhận đã giao hàng</a></td>
+                </tr>
+                {{/each}}
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

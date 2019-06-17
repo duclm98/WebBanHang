@@ -3,7 +3,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Chỉnh sửa sản phẩm</a>
+          <a href="#">Danh sách các mặt hàng trong đơn hàng</a>
         </li>
       </ol>
 
@@ -11,7 +11,7 @@
       <div class="card mb-3">
           <div class="card-header">
               <i class="fas fa-table"></i>
-              Danh sách sản phẩm
+              Danh sách các mặt hàng trong đơn hàng
           </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -21,7 +21,6 @@
                     <th>Mã sản phẩm</th>
                     <th>Thương hiệu</th>
                     <th>Tên sản phẩm</th>
-                    <th>Số lượng</th>
                     <th>Giá (VNĐ)</th>
                     <th>Màn hình</th>
                     <th>Camera trước</th>
@@ -30,17 +29,15 @@
                     <th>Ram</th>
                     <th>Bộ nhớ</th>
                     <th>Hình ảnh</th>
-                    <th>Chọn</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 {{#if data}}
                 {{#each data}}
                 <tr>
                     <th scope="row">{{this.ma}}</th>
                     <td>{{this.loai}}</td>
                     <td>{{this.ten}}</td>
-                    <td>{{this.soLuong}}</td>
                     <td>{{this.gia}}</td>
                     <td>{{this.manHinh}}</td>
                     <td>{{this.cameraTruoc}}</td>
@@ -49,7 +46,6 @@
                     <td>{{this.ram}}</td>
                     <td>{{this.rom}}</td>
                     <td><a href="{{this.hinhAnh}}">{{this.hinhAnh}}</a></td>
-                    <td><button type="button"><a href="/product/{{this._id}}">Sửa</a></button></td>
                 </tr>
                 {{/each}}
                 {{/if}}
