@@ -3,52 +3,37 @@ const product = require('../models/product');
 
 exports.top = async (req, res, next) => {
     const ORDERS = await report.list();
-    const listProduct =[];
+    const arrId =[];
     for(var i=0;i<ORDERS.length;i++){
         const listIdInCollection = ORDERS[i].listIdProduct;
         for(var j=0;j<listIdInCollection.length;j++){
-            const PRODUCT = await product.detail(listIdInCollection[j]);
-            listProduct.push(PRODUCT);
+            arrId.push(listIdInCollection[j]);
         }      
     }
     var data = [];
     var n = [];
     var temp = [];
-    for(var i=0;i<listProduct.length;i++){
+    for(var i=0;i<arrId.length;i++){
         temp[i]=0;
     }
-    for(var i=0;i<listProduct.length;i++){
+    for(var i=0;i<arrId.length;i++){
         var count = 1;
         if(temp[i] == 0){
             temp[i]=1;
-            for(var j=i+1;j<listProduct.length;j++){
-                if(listProduct[j].ma == listProduct[i].ma){
+            for(var j=i+1;j<arrId.length;j++){
+                if(arrId[j] == arrId[i]){
                     count = count +1;
                     temp[j] = 1;
                 }
             }
-            data[i]=listProduct[i];
-            n[i] = count;
+            data.push(arrId[i]);
+            n.push(count);
         }
     }
-    for(var i=0;i<n.length-1;i++){
-        for(var j=i+1;j<n.length;j++){
-            if(n[i]<n[j]){
-                const tmp1 = n[i];
-                const tmp2 = data[i];
-
-                n[i] = n[j];
-                data[i] = data[j];
-
-                n[j] = tmp1;
-                data[j] = tmp2;
-            }
-        }
-    }
-    const list = data;
+    const list = [];
     for(var i=0;i<data.length;i++){
+        list[i] = await product.detail(data[i]);
         list[i].soLuongBan=n[i];
     }
-    console.log(list);
     res.render('report/top',{list})
 };     
