@@ -18,6 +18,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                    <th>Số lượng bán</th>
                     <th>Mã sản phẩm</th>
                     <th>Thương hiệu</th>
                     <th>Tên sản phẩm</th>
@@ -33,10 +34,11 @@
                 </tr>
               </thead>
               <tbody>
-                {{#if data}}
-                {{#each data}}
+                {{#if list}}
+                {{#each list}}
                 <tr>
-                    <th scope="row">{{this.ma}}</th>
+                    <th scope="row">{{this.soLuongBan}}</th>
+                    <th>{{this.ma}}</th>
                     <td>{{this.loai}}</td>
                     <td>{{this.ten}}</td>
                     <td>{{this.soLuong}}</td>
