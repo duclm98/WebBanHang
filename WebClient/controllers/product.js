@@ -43,8 +43,8 @@ exports.info = async (req, res, next) => {
     const id = req.params['id']; 
     const data = await product.detail(id);//Chi tiết sản phẩm
     const data1 = await product.category1(data.loai);//Các sản phẩm liên quan
-    const COMMENTS = await comment.list();
-    const COUNT = await comment.count();
+    const COMMENTS = await comment.list(id);
+    const COUNT = await comment.count(id);
     res.render('product/info', {data,data1,COMMENTS,COUNT,user: req.user}); 
 }; 
 

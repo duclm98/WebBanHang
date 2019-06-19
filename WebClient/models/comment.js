@@ -6,10 +6,10 @@ module.exports.add = async (comment) => {
     return await dbs.production.collection(COMMENTS).insertOne(comment);
 };
 
-module.exports.list = async () => {
-    return await dbs.production.collection(COMMENTS).find().toArray();
+module.exports.list = async (idSanPham) => {
+    return await dbs.production.collection(COMMENTS).find({idSanPham}).toArray();
 };
 
-module.exports.count = async () => {
-    return await dbs.production.collection(COMMENTS).find().count();
+module.exports.count = async (idSanPham) => {
+    return await dbs.production.collection(COMMENTS).find({idSanPham}).count();
 };

@@ -83,7 +83,7 @@ exports.checkoutPost = async (req, res, next) => {
             await cart.delete(LIST[i].idProduct);
         }
     }  
-    res.redirect('./list');
+    res.redirect('/cart/orders');
 };
 
 exports.orders = async (req, res, next) => {
@@ -110,7 +110,7 @@ exports.orders = async (req, res, next) => {
 exports.deleteOrders = async (req, res, next) => {
     const id = req.params['id'];
     await order.delete(id);
-    res.redirect('./orders');
+    res.redirect('/cart/orders');
 };
 
 exports.editAddress = async (req, res, next) => {
